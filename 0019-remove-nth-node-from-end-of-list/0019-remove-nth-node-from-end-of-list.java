@@ -27,4 +27,21 @@ class Solution {
         left.next = left.next.next;
         return dummy.next;
     }
+    public ListNode removeNth(ListNode head, int n){
+        int len =0;
+        ListNode temp = head;
+        while(temp!= null){
+            temp = temp.next;
+            len++;
+        }
+        temp = head;
+        if(n==len){
+            return head.next;
+        }
+        for(int i=0; i<len-n-1; i++){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        return head;
+    }
 }
